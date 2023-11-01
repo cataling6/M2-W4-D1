@@ -89,9 +89,9 @@ let result = [];
 let count = 0;
 
 const inputButton = document.querySelector("#cerca");
-//const ul = document.querySelector("#lista");
 const body = document.querySelector("#body_table");
 
+//funzione di prelievo dati; nella stessa funzione eseguo anche controlli sulle caselle vuote
 const pescaValori = function () {
   const inputLocation = document.querySelector("#location").value.toLowerCase();
   const inputTitle = document.querySelector("#title").value.toLowerCase();
@@ -117,8 +117,8 @@ const pescaValori = function () {
 };
 
 inputButton.addEventListener("click", pescaValori);
-//jobFinder("us", "dev");
 
+//funzione algoritmo di ricerca nell'array
 const jobFinder = function (inputLocation, inputTitle) {
   //resetto le variabili per creare effetto "oneshot" senza accodare nulla nella precedente ricerca
   result = [];
