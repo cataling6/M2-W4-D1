@@ -6,21 +6,19 @@
     <title>Search Job</title>
   </head>
   <body>
-    <input
-      type="text"
-      id="location"
-      placeholder="cerca luogo"
-      onkeyup="searchJob()"
-    /><br />
-    <input
-      type="text"
-      id="title"
-      placeholder="cerca lavoro"
-      onkeyup="searchJob()"
-    /><br />
-    <input type="button" onclick="searchJob()" value="Cerca" />
-    <ul id="lista"></ul>
-
-    <script src="scaricabile.js"></script>
+    <input class="textInput" type="text" id="location" placeholder="luogo" /><br />
+    <input class="textInput" type="text" id="title" placeholder="mansione" /><br />
+    <input type="button" id="cerca" value="Cerca" />
+    <!-- <ul id="lista"></ul> -->
+    <table style="border: 1px solid black" id="tabella">
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Posizione Geografica</th>
+        </tr>
+      </thead>
+      <tbody id="body_table"></tbody>
+    </table>
+    <script src="index.js"></script>
   </body>
 </html>
