@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Job</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="location"
+      placeholder="cerca luogo"
+      onkeyup="searchJob()"
+    /><br />
+    <input
+      type="text"
+      id="title"
+      placeholder="cerca lavoro"
+      onkeyup="searchJob()"
+    /><br />
+    <input type="button" onclick="searchJob()" value="Cerca" />
+    <ul id="lista"></ul>
+
+    <script src="scaricabile.js"></script>
+  </body>
+</html>
