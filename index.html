@@ -3,22 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Search Job</title>
   </head>
   <body>
-    <input class="textInput" type="text" id="location" placeholder="luogo" /><br />
-    <input class="textInput" type="text" id="title" placeholder="mansione" /><br />
-    <input type="button" id="cerca" value="Cerca" />
-    <!-- <ul id="lista"></ul> -->
-    <table style="border: 1px solid black" id="tabella">
-      <thead>
-        <tr>
-          <th>Job Title</th>
-          <th>Posizione Geografica</th>
-        </tr>
-      </thead>
-      <tbody id="body_table"></tbody>
-    </table>
+    <header>NAV BAR</header>
+    <div class="container border-radius">
+      <div class="container-form d-flex border-radius">
+        <input class="textInput" type="text" id="location" placeholder="luogo" /><br />
+
+        <input class="textInput" type="text" id="title" placeholder="mansione" /><br />
+
+        <input type="button" class="tasto border-radius" id="cerca" value="Cerca" />
+      </div>
+      <div class="container-table d-flex border-radius">
+        <table class="border-radius" id="tabella">
+          <thead>
+            <tr>
+              <!-- <th>Job Title</th>
+              <th>Posizione Geografica</th> -->
+              <th><img src="./assets/ico/briefcase.png" /> Job Title</th>
+              <th><img src="./assets/ico/marker.png" /> Posizione Geografica</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="body_table"></tbody>
+        </table>
+      </div>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

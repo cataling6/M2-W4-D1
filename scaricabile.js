@@ -130,20 +130,10 @@ const result = [];
 const searchJob = function (inputTitle, inputLocation) {
   let count = 0;
   for (let i = 0; i < jobs.length; i++) {
-    if (
-      jobs[i].title.toLowerCase().includes(inputTitle.toLowerCase()) &&
-      jobs[i].location.toLowerCase().includes(inputLocation.toLowerCase())
-    ) {
+    if (jobs[i].title.toLowerCase().includes(inputTitle.toLowerCase()) && jobs[i].location.toLowerCase().includes(inputLocation.toLowerCase())) {
       result[i] = jobs[i];
       count++;
-      console.log(
-        "posizione: " +
-          (i + 1) +
-          " " +
-          result[i].title +
-          " - " +
-          result[i].location
-      );
+      console.log("posizione: " + (i + 1) + " " + result[i].title + " - " + result[i].location);
     }
   }
   console.log("hai trovato " + count + " posizioni aperte");

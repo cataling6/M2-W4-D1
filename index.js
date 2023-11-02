@@ -133,6 +133,7 @@ const jobFinder = function (inputLocation, inputTitle) {
 
   console.log("trovate " + count + " posizioni: ");
   for (let i = 0; i < result.length; i++) {
-    body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td></tr>`;
+    body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td><td><img src="./assets/ico/bookmark.png" id="addFav"></td></tr>`;
+    //body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td></tr>`;
   }
 };
