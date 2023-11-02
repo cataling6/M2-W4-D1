@@ -11,10 +11,17 @@
     <div class="container border-radius">
       <div class="container-form d-flex border-radius">
         <input class="textInput" type="text" id="location" placeholder="luogo" /><br />
-
         <input class="textInput" type="text" id="title" placeholder="mansione" /><br />
-
         <input type="button" class="tasto border-radius" id="cerca" value="Cerca" />
+
+        <div class="container-extra d-flex">
+          <fieldset>
+            <legend>Filtri</legend>
+
+            <div><input type="radio" name="true" unchecked id="escludiLuogo" /><label for="">Ricerca solamente per mansione</label></div>
+            <div><input type="radio" name="true" unchecked id="escludiMansione" /><label for="">Ricerca solamente per luogo</label></div>
+          </fieldset>
+        </div>
       </div>
       <div class="container-table d-flex border-radius">
         <table class="border-radius" id="tabella">

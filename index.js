@@ -1,3 +1,40 @@
+/*PARTE 1: 
+Oggi analizzeremo un problema molto comune: realizzare algoritmi di ricerca.
+Il tuo compito è creare una funzione che cercherà per posizione lavorativa E posizione geografica. Questi due valori verranno passati come parametri
+Ti abbiamo fornito un array chiamato "jobs" in fondo al file, NON modificarlo in alcun modo.
+L'algoritmo che devi realizzare cercherà SIA per posizione lavorativa che per posizione geografica.
+Prendi queste tre inserzioni ad esempio:
+
+      job1:  location: "NY, US",     title: "java dev"
+      job2:  location: "Genoa, IT"   title: "web dev"
+      job3:  location: "US"      title: "dev"
+
+Cercando contemporaneamente come posizione lavorativa "dev" e posizione geografica "US", dovresti ottenere come risultato solamente job1 e job3,
+in quanto job2 non soddisfa la condizione posta sulla posizione geografica.
+
+REQUISITI:
+- il tuo algoritmo deve tornare i risultati nella seguente forma:
+{
+  result: [], <-- inserisci qui le inserzioni che rispecchiano la posizione lavorativa e la posizione geografica richiesta
+  count: 0 <-- inserisci qui il numero totale delle inserzioni trovate
+}
+
+- la tua ricerca deve essere "case insensitive" (non deve essere influenzata da lettere maiuscole o minuscole nelle parole cercate). Questo e' possibile trasformando tutto in lettere minuscole con .toLowerCase()
+
+
+PARTE 2: 
+Nella pagina HTML, inserisci 2 input di tipo testo (uno per la location e uno per il titolo lavorativo, ricordati di diversificarli con un id) e un bottone con valore “cerca”
+
+Al click del bottone, il codice deve raccogliere i valori dei due input e darli in pasto alla funzione che hai creato nella parte 1. 
+
+Dopo aver raccolto ed elaborato i dati, e’ il momento di mostrare i risultati sulla pagina: 
+    Puoi scegliere tu se utilizzare un semplice ul / li oppure una tabella 
+    Vai passo per passo e usa molti console.log per capire eventualmente dove sbagli
+    SUGGERIMENTO: ti servira’ un ciclo for!
+
+*/
+
+// NON MODIFICARE QUESTO ARRAY!
 const jobs = [
   { title: "Marketing Intern", location: "US, NY, New York" },
   {
@@ -90,30 +127,84 @@ let count = 0;
 
 const inputButton = document.querySelector("#cerca");
 const body = document.querySelector("#body_table");
+const locationExcluded = document.querySelector("#escludiLuogo");
+const jobExcluded = document.querySelector("#escludiMansione");
 
 //funzione di prelievo dati; nella stessa funzione eseguo anche controlli sulle caselle vuote
 const pescaValori = function () {
   const inputLocation = document.querySelector("#location").value.toLowerCase();
   const inputTitle = document.querySelector("#title").value.toLowerCase();
+
   if (inputLocation !== "" && inputTitle !== "") {
     jobFinder(inputLocation, inputTitle);
   } else {
-    if (inputLocation === "" && inputTitle === "") {
-      alert("Mancano i parametri di ricerca; inserisci jobtitle e luogo per continuare la ricerca");
-    } else {
-      switch (false) {
-        case inputLocation !== "":
-          alert("E' richiesta la location");
-          break;
-        case inputTitle !== "":
-          alert("E' richiesto il job Title");
-          break;
+    switch (true) {
+      //casistica richiesta nel compito
+      case inputTitle === "" && inputLocation === "":
+        alert("Mancano i parametri di ricerca; inserisci jobtitle e luogo per continuare la ricerca");
+        break;
 
-        default:
-          break;
-      }
+      //casistica extra con controllo filtri
+      case inputTitle === "" && inputLocation !== "" && jobExcluded.checked == true:
+        jobFinder(inputLocation, inputTitle);
+        break;
+
+      //casistica extra con controllo filtri
+      case inputTitle !== "" && inputLocation === "" && locationExcluded.checked === true:
+        jobFinder(inputLocation, inputTitle);
+        break;
+
+      //casistica extra con controllo filtri
+      case inputTitle === "" && inputLocation !== "" && locationExcluded.checked == true:
+        alert("Hai sbagliato filtro, seleziona la ricerca per luogo");
+        break;
+
+      //casistica extra con controllo filtri
+      case inputTitle !== "" && inputLocation === "" && jobExcluded.checked == true:
+        alert("Hai sbagliato filtro, seleziona la ricerca per mansione");
+        break;
+
+      //casistica richiesta nel compito
+      case inputTitle === "" && inputLocation !== "" && locationExcluded.checked == false:
+        alert("Inserisci anche la mansione o applica un filtro di ricerca! ");
+        break;
+      //casistica richiesta nel compito
+      case inputTitle !== "" && inputLocation === "" && jobExcluded.checked == false:
+        alert("Inserisci anche il luogo o applica un filtro di ricerca!");
+        break;
+
+      default:
+        break;
     }
   }
+
+  // if (inputLocation !== "" && inputTitle !== "") {
+  //   jobFinder(inputLocation, inputTitle);
+  // } else if ((inputLocation !== "" && inputTitle === "") || (inputLocation === "" && inputTitle == "")) {
+  //   switch (false) {
+  //     case inputLocation === "" && locationExcluded.value == false && jobExcluded.value == true:
+  //       alert("devi inserire un luogo come criterio di ricerca");
+  //       break;
+
+  //     case inputLocation === "" && locationExcluded.value == true:
+  //       jobFinder(inputLocation, inputTitle);
+  //       break;
+
+  //     case inputTitle === "" && jobExcluded.value == true:
+  //       jobFinder(inputLocation, inputTitle);
+
+  //       break;
+
+  //     case inputTitle === "" && jobExcluded.value == false:
+  //       alert("devi inserire la mansione come criterio di ricerca");
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // } else {
+  //   alert("Mancano i parametri di ricerca; inserisci jobtitle e luogo per continuare la ricerca");
+  // }
 };
 
 inputButton.addEventListener("click", pescaValori);

@@ -31,12 +31,17 @@ td {
   margin-right: auto;
 }
 .container {
+  margin-top: 150px;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.container-extra {
+  flex-direction: column;
+  justify-content: start;
 }
 input[type="text"] {
   width: 100%;
@@ -54,6 +59,7 @@ input[type="text"]:focus {
 }
 
 input[type="text"]:focus::placeholder {
+  position: absolute;
   transition: 0.5s;
   color: #007bff;
 }
