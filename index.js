@@ -177,34 +177,6 @@ const pescaValori = function () {
         break;
     }
   }
-
-  // if (inputLocation !== "" && inputTitle !== "") {
-  //   jobFinder(inputLocation, inputTitle);
-  // } else if ((inputLocation !== "" && inputTitle === "") || (inputLocation === "" && inputTitle == "")) {
-  //   switch (false) {
-  //     case inputLocation === "" && locationExcluded.value == false && jobExcluded.value == true:
-  //       alert("devi inserire un luogo come criterio di ricerca");
-  //       break;
-
-  //     case inputLocation === "" && locationExcluded.value == true:
-  //       jobFinder(inputLocation, inputTitle);
-  //       break;
-
-  //     case inputTitle === "" && jobExcluded.value == true:
-  //       jobFinder(inputLocation, inputTitle);
-
-  //       break;
-
-  //     case inputTitle === "" && jobExcluded.value == false:
-  //       alert("devi inserire la mansione come criterio di ricerca");
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // } else {
-  //   alert("Mancano i parametri di ricerca; inserisci jobtitle e luogo per continuare la ricerca");
-  // }
 };
 
 inputButton.addEventListener("click", pescaValori);
@@ -225,6 +197,5 @@ const jobFinder = function (inputLocation, inputTitle) {
   console.log("trovate " + count + " posizioni: ");
   for (let i = 0; i < result.length; i++) {
     body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td><td><img src="./assets/ico/bookmark.png" id="addFav"></td></tr>`;
-    //body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td></tr>`;
   }
 };
