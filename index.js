@@ -131,48 +131,47 @@ const locationExcluded = document.querySelector("#escludiLuogo");
 const jobExcluded = document.querySelector("#escludiMansione");
 const nrJobs = document.querySelector("#numeroAnnunci");
 
-const arrayFav = [];
-
 //funzione di prelievo dati; nella stessa funzione eseguo anche controlli sulle caselle vuote
 const pescaValori = function () {
   const inputLocation = document.querySelector("#location").value.toLowerCase();
   const inputTitle = document.querySelector("#title").value.toLowerCase();
 
-  if (inputLocation !== "" && inputTitle !== "") {
+  if (inputLocation && inputTitle) {
+    //  if (inputLocation !== "" && inputTitle !== "")
     jobFinder(inputLocation, inputTitle);
   } else {
     switch (true) {
       //casistica richiesta nel compito
-      case inputTitle === "" && inputLocation === "":
+      case !inputTitle && !inputLocation:
         alert("Mancano i parametri di ricerca; inserisci jobtitle e luogo per continuare la ricerca");
         break;
 
       //casistica extra con controllo filtri
-      case inputTitle === "" && inputLocation !== "" && jobExcluded.checked == true:
+      case !inputTitle && inputLocation && jobExcluded.checked:
         jobFinder(inputLocation, inputTitle);
         break;
 
       //casistica extra con controllo filtri
-      case inputTitle !== "" && inputLocation === "" && locationExcluded.checked === true:
+      case inputTitle && !inputLocation && locationExcluded.checked:
         jobFinder(inputLocation, inputTitle);
         break;
 
       //casistica extra con controllo filtri
-      case inputTitle === "" && inputLocation !== "" && locationExcluded.checked == true:
+      case !inputTitle && inputLocation && locationExcluded.checked:
         alert("Hai sbagliato filtro, seleziona la ricerca per luogo");
         break;
 
       //casistica extra con controllo filtri
-      case inputTitle !== "" && inputLocation === "" && jobExcluded.checked == true:
+      case inputTitle && !inputLocation && jobExcluded.checked:
         alert("Hai sbagliato filtro, seleziona la ricerca per mansione");
         break;
 
       //casistica richiesta nel compito
-      case inputTitle === "" && inputLocation !== "" && locationExcluded.checked == false:
+      case !inputTitle && inputLocation && !locationExcluded.checked:
         alert("Inserisci anche la mansione o applica un filtro di ricerca! ");
         break;
       //casistica richiesta nel compito
-      case inputTitle !== "" && inputLocation === "" && jobExcluded.checked == false:
+      case inputTitle && !inputLocation && !jobExcluded.checked:
         alert("Inserisci anche il luogo o applica un filtro di ricerca!");
         break;
 
@@ -184,7 +183,7 @@ const pescaValori = function () {
 
 inputButton.addEventListener("click", pescaValori);
 
-//funzione algoritmo di ricerca nell'array
+//funzione algoritmo di ricerca nell'array:
 const jobFinder = function (inputLocation, inputTitle) {
   //resetto le variabili per creare effetto "oneshot" senza accodare nulla nella precedente ricerca
   result = [];
@@ -193,22 +192,13 @@ const jobFinder = function (inputLocation, inputTitle) {
   for (let i = 0; i < jobs.length; i++) {
     if (jobs[i].location.toLowerCase().includes(inputLocation) && jobs[i].title.toLowerCase().includes(inputTitle)) {
       result.push(jobs[i]);
-
       count++;
     }
   }
-
   console.log("trovate " + count + " posizioni: ");
-
   nrJobs.innerText = `Ho trovato ${count} annunci in seguito alla tua ricerca; li trovi nella tabella di sotto: `;
+  //elenco i risultati:
   for (let i = 0; i < result.length; i++) {
     body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td> </tr>`;
   }
 };
-const titolo = document.querySelector("h1");
-const mouseOver = document.querySelector(".container-form");
-
-mouseOver.addEventListener("click", function () {
-  console.log("12adasd");
-  titolo.classList.replace("h1-orig", "h1-mod");
-});
