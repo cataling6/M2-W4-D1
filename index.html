@@ -7,7 +7,9 @@
     <title>Search Job</title>
   </head>
   <body>
-    <header>NAV BAR</header>
+    <header class="nav-bar">
+      <h1 class="h1-orig">cerca il lavoro dei tuoi sogni</h1>
+    </header>
     <div class="container border-radius">
       <div class="container-form d-flex border-radius">
         <input class="textInput" type="text" id="location" placeholder="luogo" /><br />
@@ -23,12 +25,11 @@
           </fieldset>
         </div>
       </div>
+      <div class="justify-content-center"><p id="numeroAnnunci"></p></div>
       <div class="container-table d-flex border-radius">
         <table class="border-radius" id="tabella">
           <thead>
             <tr>
-              <!-- <th>Job Title</th>
-              <th>Posizione Geografica</th> -->
               <th><img src="./assets/ico/briefcase.png" /> Job Title</th>
               <th><img src="./assets/ico/marker.png" /> Posizione Geografica</th>
               <th></th>

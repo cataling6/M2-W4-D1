@@ -1,5 +1,4 @@
 table {
-  border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -9,9 +8,12 @@ th {
   text-align: left;
 }
 
-td {
-  border-bottom: 1px solid black;
+.nav-bar {
+  position: relative;
+  background-color: #007bff;
+  height: 100px;
 }
+
 .d-flex {
   display: flex;
 }
@@ -19,9 +21,15 @@ td {
   border-radius: 5px;
 }
 .container-table {
+  color: white;
+  background-color: #007bff;
   justify-content: center;
   -webkit-box-shadow: 6px 5px 28px -7px #000000;
   box-shadow: 6px 5px 28px -7px #000000;
+}
+.justify-content-center {
+  display: flex;
+  justify-content: center;
 }
 
 .container-form {
@@ -30,8 +38,9 @@ td {
   margin-left: auto;
   margin-right: auto;
 }
+
 .container {
-  margin-top: 150px;
+  margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -85,4 +94,13 @@ td > img {
 td > img {
   display: flex;
   justify-content: center;
+}
+
+fieldset {
+  border-radius: 5px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
 }

@@ -129,6 +129,9 @@ const inputButton = document.querySelector("#cerca");
 const body = document.querySelector("#body_table");
 const locationExcluded = document.querySelector("#escludiLuogo");
 const jobExcluded = document.querySelector("#escludiMansione");
+const nrJobs = document.querySelector("#numeroAnnunci");
+
+const arrayFav = [];
 
 //funzione di prelievo dati; nella stessa funzione eseguo anche controlli sulle caselle vuote
 const pescaValori = function () {
@@ -190,12 +193,22 @@ const jobFinder = function (inputLocation, inputTitle) {
   for (let i = 0; i < jobs.length; i++) {
     if (jobs[i].location.toLowerCase().includes(inputLocation) && jobs[i].title.toLowerCase().includes(inputTitle)) {
       result.push(jobs[i]);
+
       count++;
     }
   }
 
   console.log("trovate " + count + " posizioni: ");
+
+  nrJobs.innerText = `Ho trovato ${count} annunci in seguito alla tua ricerca; li trovi nella tabella di sotto: `;
   for (let i = 0; i < result.length; i++) {
-    body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td><td><img src="./assets/ico/bookmark.png" id="addFav"></td></tr>`;
+    body.innerHTML += `<tr><td>${result[i].title}</td><td>${result[i].location}</td> </tr>`;
   }
 };
+const titolo = document.querySelector("h1");
+const mouseOver = document.querySelector(".container-form");
+
+mouseOver.addEventListener("click", function () {
+  console.log("12adasd");
+  titolo.classList.replace("h1-orig", "h1-mod");
+});
