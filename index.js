@@ -137,7 +137,6 @@ const pescaValori = function () {
   const inputTitle = document.querySelector("#title").value.toLowerCase();
 
   if (inputLocation && inputTitle) {
-    //  if (inputLocation !== "" && inputTitle !== "")
     jobFinder(inputLocation, inputTitle);
   } else {
     switch (true) {
