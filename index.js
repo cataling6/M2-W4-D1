@@ -181,6 +181,13 @@ const pescaValori = function () {
   }
 };
 
+//extra START: ricerca anche premendo invio (senza quindi usare tasto "Cerca"); ho focusato il div per evitare di mettere tanti event listener quanti input
+const enterPremutoLocation = document.querySelector(".container-form");
+enterPremutoLocation.addEventListener("keypress", function (premuto) {
+  if (premuto.key === "Enter") pescaValori();
+});
+//extra END: ricerca anche premendo invio (senza quindi usare tasto "Cerca"); ho focusato il div per evitare di mettere tanti event listener quanti input
+
 inputButton.addEventListener("click", pescaValori);
 
 //funzione algoritmo di ricerca nell'array:
