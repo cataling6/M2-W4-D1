@@ -104,3 +104,9 @@ h1 {
   color: white;
   text-align: center;
 }
+
+header {
+  border-radius: 5px;
+  -webkit-box-shadow: 6px 5px 28px -7px #000000;
+  box-shadow: 6px 5px 28px -7px #000000;
+}
